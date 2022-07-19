@@ -21,8 +21,5 @@ Route::get('/', 'HomeController@welcome');
 Route::get('/index', 'HomeController@index'); //READ
 Route::post('/add_reservation', 'ReservationController@store'); //CREATE
 Route::get('/edit_reservation/{id}', 'ReservationController@edit');
-
 Route::put('/update_reservation', 'ReservationController@update');  //UPDATE
-Route::delete('/delete_reservation/{id}', 'ReservationController@destroy'); //DELETE
-
-// and push
+Route::delete('/delete_reservation/{id}', 'ReservationController@destroy')->name('delete.reservation'); //DELETE

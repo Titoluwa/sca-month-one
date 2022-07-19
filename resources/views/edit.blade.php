@@ -35,10 +35,10 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="#about">About</a></li>
-                            <li class="scroll-to-section"><a href="#menu">Menu</a></li>
-                            <li class="scroll-to-section"><a href="#reservation">Reservations</a></li>
+                            <li class=""><a href="/index" class="active">Home</a></li>
+                            <li class=""><a href="/index#about">About</a></li>
+                            <li class=""><a href="/index#menu">Menu</a></li>
+                            <li class=""><a href="/index#reservation">Reservations</a></li>
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -56,19 +56,22 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="left-content">
+                    <div class="left-content py-5">
+                        <div class="py-5">
+                            <div class="pl-5 pb-2">
+                                <h4 class="pb-2">{{$reserved->name}}</h4>
+                                <form action="{{ route('delete.reservation', $reserved->id)}}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <input class="btn btn-outline-light" type="submit" value="Delete Reservation" />
+                                 </form>
+                            </div>
+                        </div>
                         <div class="inner-content contact-form">
-                            <h4 class="mb-3">{{$reserved->name}}</h4>
                             <form id="contact" action="/update_reservation" method="POST">
                                 @method('PUT')
                                 @csrf
                               <div class="row">
-                                {{-- @if (session('status')) --}}
-
-                                {{-- @endif --}}
-                               {{-- <div class="col-lg-12 main-white-button">
-                                    <a href="">Reservation Updated!</a>
-                                </div> --}}
                                 <div class="col-lg-12">
                                     <h3 class="m-3 text-center">Edit Reservation</h3>
                                 </div>

@@ -48,8 +48,19 @@
                 </div>
             </div>
         </div>
+        @if(session()->has("message"))
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="alert alert-danger alert-block">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <strong> {{session()->get('message')}} </strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
     </header>
-    <!-- ***** Header Area End ***** -->
 
     <!-- ***** Main Banner Area Start ***** -->
     <div id="top">

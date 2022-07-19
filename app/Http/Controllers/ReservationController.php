@@ -20,7 +20,7 @@ class ReservationController extends Controller
     public function store(Request $request)
     {
         Reservation::create($this->validateRequest());
-        return back();
+        return back()->with('message',"New Reservation Added!");
     }
     private function validateRequest()
     {
@@ -56,11 +56,13 @@ class ReservationController extends Controller
         $reserve->date = $request->date;
         $reserve->description = $request->description;
         $reserve->update();
-        return redirect('/index');
+        return redirect('/index')->with('message',"$request->name reservation has been updated!");
     }
 
     public function destroy($id)
     {
-        //
+        $reserve = Reservation::findOrFail($id);
+        $reserve->delete();
+        return redirect('/index')->with('message',"Reservation has been Deleted!");
     }
 }
